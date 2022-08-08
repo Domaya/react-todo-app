@@ -16,6 +16,7 @@ const Lists = React.memo((props) => {
         //원하는 자리에 reorderItem을 Insert해줍니다.
         newTodoData.splice(result.destination.index, 0, reorderedItem);
         props.setTodoData(newTodoData);
+        localStorage.setItem('todoData', JSON.stringify(newTodoData));
       }
 
   return (

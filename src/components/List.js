@@ -18,6 +18,7 @@ const List = React.memo((props) => {
       return data;
     })
     props.setTodoData(newTodoData);
+    localStorage.setItem('todoData', JSON.stringify(newTodoData));
     setIsEditing(false)
   }
 
@@ -29,6 +30,7 @@ const List = React.memo((props) => {
       return data;
     })
     props.setTodoData(newTodoData);
+    localStorage.setItem('todoData', JSON.stringify(newTodoData));
   }
 
   if(isEditing){
