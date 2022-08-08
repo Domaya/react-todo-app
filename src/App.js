@@ -13,7 +13,7 @@ export default function App() {
     },
     {
       id:2,
-      title:"미친새끼",
+      title:"물걸레청소",
       completed:false
     }
   ]);
@@ -23,7 +23,7 @@ export default function App() {
     let newTodoData = todoData.filter((data => data.id !== id))
     setTodoData(newTodoData);
   }, [todoData])
-  
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -36,11 +36,16 @@ export default function App() {
     setValue("");
   }
 
+    const handleRemoveClick = () => {
+        setTodoData([]);
+    }
+
     return(
       <div className="flex items-center justify-center w-screen h-screen bg-blue-100">
           <div className="w-full p-6 m-4 bg-white rounded shadow lg:w-3/4 lg:max-w-lg">
             <div className="flex justify-between mb-3">
-              <h1>할 일 목록</h1>
+              <h1 className="font-bold">할 일 목록</h1>
+              <button className="hover:bg-gray-200" onClick={handleRemoveClick}>DELETE ALL</button>
             </div>
             <Lists handleClick={handleClick} todoData={todoData} setTodoData={setTodoData}/>
               <Form value={value} setValue={setValue} handleSubmit={handleSubmit}/>
