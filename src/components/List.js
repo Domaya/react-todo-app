@@ -13,11 +13,6 @@ const List = React.memo((props) => {
   }
 
 
-  const handleClick = (id) => {
-    let newTodoData = props.todoData.filter((data => data.id !== id))
-    props.setTodoData(newTodoData);
-  }
-
   return (
         <div
                     key={props.id}
@@ -31,7 +26,7 @@ const List = React.memo((props) => {
                         <span className={props.completed ? "line-through" : undefined}>{props.title}</span>
                       </div>
                       <div>
-                        <button className='px-4 py-2 float-right' onClick={()=> handleClick(props.id)}>x</button>
+                        <button className='px-4 py-2 float-right' onClick={()=> props.handleClick(props.id)}>x</button>
                       </div>
                     </div>
   )
